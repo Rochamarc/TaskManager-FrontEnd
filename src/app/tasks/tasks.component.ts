@@ -20,6 +20,7 @@ const TASKS: Array<Task> = [
 
 export class TasksComponent implements OnInit {
   public tasks;
+  public selectedTask: Task; // Define o tipo de variavel
 
   constructor() { }
 
@@ -27,5 +28,8 @@ export class TasksComponent implements OnInit {
     this.tasks = TASKS;
   }
 
+  public onSelect(task: Task): void {
+    this.selectedTask = task;
+  }
 }
 
