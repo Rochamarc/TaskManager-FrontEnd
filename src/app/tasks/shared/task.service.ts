@@ -15,7 +15,18 @@ const TASKS: Array<Task> = [
 @Injectable()
 
 export class TaskService {
-  public getTasks(): Array<Task>{
-    return TASKS;
+  // Retorna uma promise de um array de tarefas
+  public getTasks(): Promise<Task[]>{
+    let promise = new Promise((resolve, reject) => {
+      if(TASKS.length > 0){
+      	resolve(TASKS); // retorno com sucesso
+      }else{
+	let error = "Não há tarefas";
+	reject(error);
+      }
+      })
+
+      return promise;
   }
 }
+

@@ -22,7 +22,9 @@ export class TasksComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tasks = this.taskService.getTasks();
+    this.taskService.getTasks()
+      .then((tasks) => this.tasks = tasks)
+      .catch((error) => alert(error));
   }
 
   public onSelect(task: Task): void {
