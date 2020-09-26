@@ -15,6 +15,7 @@ const TASKS: Array<Task> = [
 @Injectable()
 
 export class TaskService {
+
   // Retorna uma promise de um array de tarefas
   public getTasks(): Promise<Task[]>{
     let promise = new Promise((resolve, reject) => {
@@ -31,6 +32,12 @@ export class TaskService {
 
   public getImportantTasks(): Promise<Task[]> {
     return Promise.resolve(TASKS.slice(0, 3));
+  }
+
+  
+  public getTask(id: number): Promise<Task>{
+    return this.getTasks()
+      .then(tasks => tasks.find(task => task.id === id))
   }
 }
 
