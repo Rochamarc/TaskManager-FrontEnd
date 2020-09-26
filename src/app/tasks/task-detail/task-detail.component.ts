@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import "rxjs/add/operator/switchMap";
@@ -12,7 +12,7 @@ import { TaskService } from '../shared/task.service';
 })
 
 export class TaskDetailComponent implements OnInit {
-  @Input() public task: Task;
+  public task: Task;
 
   public constructor(
     private taskService: TaskService,
@@ -24,7 +24,7 @@ export class TaskDetailComponent implements OnInit {
     this.route.params
       // Fazendo uma requisiçao para depois entrar no subscribe mantendo a ordem
       .switchMap((params: Params) => this.taskService.getTask(+params['id'])) // retorna uma Promise<Task> mas o switchmap pass pro subscribe como um observable Observable<Task>
-      // Logo o subscribe recebe um task, ja que a maneira de acessar um observable é com o subscribe
+      // Logo o subscribe recebe um task, ja que a maneira de acessar um observable é com o subscribe 
       .subscribe(task => this.task = task)    
   }
 }
