@@ -14,6 +14,10 @@ import { TaskService } from './tasks/shared/task.service';
 // Defino as minhas rotas
 const ROUTES = RouterModule.forRoot([
   {
+    path: 'tasks/:id',
+    component: TaskDetailComponent
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent
   },
@@ -27,6 +31,8 @@ const ROUTES = RouterModule.forRoot([
     pathMatch: 'full'
   }
 ])
+
+//seudominio.com/tasks/:id
 
 @NgModule({
   declarations: [
