@@ -21,12 +21,16 @@ export class TaskService {
       if(TASKS.length > 0){
       	resolve(TASKS); // retorno com sucesso
       }else{
-	let error = "Não há tarefas";
-	reject(error);
-      }
-      })
+	      let error = "Não há tarefas";
+	      reject(error);
+        }
+    })
 
-      return promise;
+    return promise;
+  }
+
+  public getImportantTasks(): Promise<Task[]> {
+    return Promise.resolve(TASKS.slice(0, 3));
   }
 }
 
