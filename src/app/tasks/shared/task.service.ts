@@ -18,7 +18,7 @@ export class TaskService {
 
   // Retorna uma promise de um array de tarefas
   public getTasks(): Promise<Task[]>{
-    let promise = new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
       if(TASKS.length > 0){
       	resolve(TASKS); // retorno com sucesso
       }else{
@@ -26,8 +26,6 @@ export class TaskService {
 	      reject(error);
         }
     })
-
-    return promise;
   }
 
   public getImportantTasks(): Promise<Task[]> {
