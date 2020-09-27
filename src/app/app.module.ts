@@ -1,38 +1,21 @@
+// Angular Imports
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
 
+// Components Import
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
+
+// Service Imports
 import { TaskService } from './tasks/shared/task.service';
 
-// Defino as minhas rotas
-const ROUTES = RouterModule.forRoot([
-  {
-    path: 'tasks/:id',
-    component: TaskDetailComponent
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'tasks',
-    component: TasksComponent
-  },
-  {
-    path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
-  }
-])
-
-//seudominio.com/tasks/:id
+// Module Imports
+import { AppRoutingModule } from './app-routing.module'; // Importo meu recem criado arquivo de rotas
 
 @NgModule({
   declarations: [
@@ -46,7 +29,7 @@ const ROUTES = RouterModule.forRoot([
     BrowserModule,
     FormsModule,
     HttpModule,
-    ROUTES
+    AppRoutingModule
   ],
   providers: [ TaskService ],
   bootstrap: [AppComponent]
