@@ -1,8 +1,12 @@
+<h1 class="page-header">Lista de Tarefas</h1>
+
 <table class="table">
   <thead>
-    <th>Id</th>
-    <th>Título</th>
-    <th>Ações</th>
+    <tr>
+      <th>Id</th>
+      <th>Título</th>
+      <th>Ações</th>
+    </tr>
   </thead>
 
   <tbody>
@@ -10,11 +14,11 @@
       <td>{{ task.id }}</td>
       <td>{{ task.title }}</td>
       <td>
-        <!-- Botão de ação pro task detail -->
-        <button class="btn btn-info" data-toggle="modal" data-target="#taskDetail" (click)="onSelect(task)">
+        <!-- Link pro tasks/:id -->
+        <a [routerLink]="['/tasks',task.id]" class="btn btn-info">
           <span class="glyphicon glyphicon-info-sign"></span>
           Detalhes 
-        </button>
+        </a>
         <button class="btn btn-danger">
           <span class="glyphicon glyphicon-trash"></span>
           Excluir
@@ -24,5 +28,3 @@
   </tbody>
 </table>
 
-<!-- Tarefa selecionada é enviada para o task details -->
-<task-detail [task]="selectedTask"></task-detail>
